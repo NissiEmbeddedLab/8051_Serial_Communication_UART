@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\15_Serial_Communication_UART.obj" 
+TO ".\Objects\15_Serial_Communication_UART" 
+PRINT(".\Listings\15_Serial_Communication_UART.m51") RAMSIZE(256) 

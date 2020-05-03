@@ -1,0 +1,38 @@
+C51 COMPILER V9.60.0.0   15_SERIAL_COMMUNICATION_UART                                      05/03/2020 20:05:46 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE 15_SERIAL_COMMUNICATION_UART
+OBJECT MODULE PLACED IN .\Objects\15_Serial_Communication_UART.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE 15_Serial_Communication_UART.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTE
+                    -ND PRINT(.\Listings\15_Serial_Communication_UART.lst) TABS(2) OBJECT(.\Objects\15_Serial_Communication_UART.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          void main(void)
+   3          {
+   4   1        TMOD = 0x20;        //Timer 1 8 bit auto reload mode
+   5   1        TH1 = 0xFA;         //baudrate 9600
+   6   1        SCON = 0x50;        //Serial control register Mode1 with reception enable
+   7   1        TR1 = 1;
+   8   1        while(1)
+   9   1        {
+  10   2          SBUF = 'A';       //Sending data to PORT but only one byte at a time use with array for more bytes
+  11   2          while(TI == 0);
+  12   2          TI = 0;
+  13   2        }
+  14   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     21    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
